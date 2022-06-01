@@ -3,7 +3,6 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import java.io.File;
 
@@ -28,7 +27,7 @@ public class StudentRegistrationFormTests {
         $("#firstName").setValue("Mikhail");
         $("#lastName").setValue("Malygin");
         $("#userEmail").setValue("test@mail.ru");
-        $(By.xpath("//label[text()='Male']")).click();
+        $(byText("Male")).click();
         $("#userNumber").setValue("1234567890");
 
         $("#dateOfBirthInput").click();
@@ -39,8 +38,8 @@ public class StudentRegistrationFormTests {
         $("[aria-label='Choose Monday, May 30th, 2022']").click();
 
         $("#subjectsInput").setValue("Computer Science").pressTab();
-        $(By.xpath("//label[text()='Reading']")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/java/resources/test_picture_qa_guru.png"));
+        $(byText("Reading")).click();
+        $("#uploadPicture").uploadFile(new File("src/test/resources/test_picture_qa_guru.png"));
         $("#currentAddress").setValue("Moscow, 17 Tverskaya st");
         $("#state").click();
         $("#state").$(byText("Haryana")).click();
