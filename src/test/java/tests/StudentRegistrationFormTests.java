@@ -1,7 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -11,23 +9,18 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class StudentRegistrationFormTests {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
+public class StudentRegistrationFormTests extends TestBase {
 
     @Test
     void fillingRegistrationFormTest() {
 
         open("/automation-practice-form");
 
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         $("#firstName").setValue("Mikhail");
         $("#lastName").setValue("Malygin");
         $("#userEmail").setValue("test@mail.ru");
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1234567890");
 
         $("#dateOfBirthInput").click();
@@ -38,7 +31,7 @@ public class StudentRegistrationFormTests {
         $("[aria-label='Choose Monday, May 30th, 2022']").click();
 
         $("#subjectsInput").setValue("Computer Science").pressTab();
-        $(byText("Reading")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFile(new File("src/test/resources/test_picture_qa_guru.png"));
         $("#currentAddress").setValue("Moscow, 17 Tverskaya st");
         $("#state").click();
@@ -48,16 +41,20 @@ public class StudentRegistrationFormTests {
 
         $("[id=submit]").click();
 
-        $(".modal-body").shouldHave(text("Mikhail"),
-                text("Malygin"),
-                text("test@mail.ru"),
-                text("Male"),
-                text("1234567890"),
-                text("30 May,2022"),
-                text("Computer Science"),
-                text("Reading"),
-                text("test_picture_qa_guru.png"),
-                text("Moscow, 17 Tverskaya st"),
-                text("Haryana Panipat"));
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        checkTable("Student Name", "Mikhail Malygin");
+        checkTable("Student Email", "test@mail.ru");
+        checkTable("Gender", "Male");
+        checkTable("Mobile", "1234567890");
+        checkTable("Date of Birth", "30 May,2022");
+        checkTable("Subjects", "Computer Science");
+        checkTable("Hobbies", "Reading");
+        checkTable("Picture", "test_picture_qa_guru.png");
+        checkTable("Address", "Moscow, 17 Tverskaya st");
+        checkTable("State and City", "Haryana Panipat");
+    }
+
+    void checkTable(String key, String value) {
+        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
     }
 }
