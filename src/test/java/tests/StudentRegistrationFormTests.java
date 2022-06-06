@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static tests.TestData.*;
 
-
 public class StudentRegistrationFormTests extends TestBase {
 
     @Test
