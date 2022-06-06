@@ -23,30 +23,30 @@ public class StudentRegistrationFormTests extends TestBase {
         String state = "Haryana";
         String city = "Panipat";
 
-        studentRegistrationFormPage.openPage().
-                                    setFirstName(firstName).
-                                    setLastName(lastName).
-                                    setUserEmail(userEmail).
-                                    setGender(gender).
-                                    setPhoneNumber(phoneNumber).
-                                    setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth).
-                                    setSubject(subject).
-                                    setHobby(hobby).
-                                    uploadPicture(pathPicture).
-                                    setCurrentAddress(currentAddress).
-                                    setState(state).
-                                    setCity(city).
-                                    submit();
+        studentRegistrationFormPage.openPage()
+                                   .setFirstName(firstName)
+                                   .setLastName(lastName)
+                                   .setUserEmail(userEmail)
+                                   .setGender(gender)
+                                   .setPhoneNumber(phoneNumber)
+                                   .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
+                                   .setSubject(subject)
+                                   .setHobby(hobby)
+                                   .uploadPicture(pathPicture)
+                                   .setCurrentAddress(currentAddress)
+                                   .setState(state)
+                                   .setCity(city)
+                                   .submit();
 
-        studentRegistrationFormPage.checkResult("Student Name", firstName + " " + lastName).
-                                    checkResult("Student Email", userEmail).
-                                    checkResult("Gender", gender).
-                                    checkResult("Mobile", phoneNumber).
-                                    checkResult("Date of Birth", (dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)).
-                                    checkResult("Subjects", subject).
-                                    checkResult("Hobbies", hobby).
-                                    checkResult("Picture", namePicture).
-                                    checkResult("Address", currentAddress).
-                                    checkResult("State and City", state + " " + city);
+        studentRegistrationFormPage.checkResult("Student Name", firstName + " " + lastName)
+                                   .checkResult("Student Email", userEmail)
+                                   .checkResult("Gender", gender)
+                                   .checkResult("Mobile", phoneNumber)
+                                   .checkResult("Date of Birth", (dayOfBirth + " " + monthOfBirth + "," + yearOfBirth))
+                                   .checkResult("Subjects", subject)
+                                   .checkResult("Hobbies", hobby)
+                                   .checkResult("Picture", namePicture)
+                                   .checkResult("Address", currentAddress)
+                                   .checkResult("State and City", state + " " + city);
     }
 }
