@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class TestData extends StudentRegistrationFormPage {
 
-    private final static Faker fakerEnglish = new Faker(new Locale("en"));
-    private final static Faker fakerRussian = new Faker(new Locale("ru"));
+    private final static Faker fakerEnglish = new Faker(new Locale("en")),
+                               fakerRussian = new Faker(new Locale("ru"));
 
     private final static List<String> allMonths = Arrays.asList("January", "February", "March",
                                                                 "April", "May", "June",
@@ -23,11 +23,14 @@ public class TestData extends StudentRegistrationFormPage {
                                                                       "Commerce", "Accounting", "Economics",
                                                                       "Social Studies", "Civics");
 
-    private final static List<String> allStates = Arrays.asList("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-    private final static List<String> allCitiesStateNCR = Arrays.asList("Delhi", "Gurgaon", "Noida");
-    private final static List<String> allCitiesStateUttarPradesh = Arrays.asList("Agra", "Lucknow", "Merrut");
-    private final static List<String> allCitiesStateHaryana = Arrays.asList("Karnal", "Panipat");
-    private final static List<String> allCitiesStateRajasthan = Arrays.asList("Jaipur", "Jaiselmer");
+    private final static List<String> allPictureNames = Arrays.asList("test_picture_qa_guru.png",
+                                                                      "test_picture_tools_qa.jpg");
+
+    private final static List<String> allStates = Arrays.asList("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
+                                      allCitiesStateNCR = Arrays.asList("Delhi", "Gurgaon", "Noida"),
+                                      allCitiesStateUttarPradesh = Arrays.asList("Agra", "Lucknow", "Merrut"),
+                                      allCitiesStateHaryana = Arrays.asList("Karnal", "Panipat"),
+                                      allCitiesStateRajasthan = Arrays.asList("Jaipur", "Jaiselmer");
 
     protected final static String FIRST_NAME = fakerRussian.name().firstName(),
                                   LAST_NAME = fakerRussian.name().lastName(),
@@ -39,8 +42,8 @@ public class TestData extends StudentRegistrationFormPage {
                                   YEAR_OF_BIRTH = String.valueOf(fakerEnglish.number().numberBetween(1922, 2006)),
                                   SUBJECT = getRandomValue(severalSubjects),
                                   HOBBY = getRandomHobbyValue(),
-                                  PATH_PICTURE = "img/test_picture_qa_guru.png",
-                                  NAME_PICTURE = "test_picture_qa_guru.png",
+                                  NAME_PICTURE = getRandomValue(allPictureNames),
+                                  PATH_PICTURE = "img/" + NAME_PICTURE,
                                   CURRENT_ADDRESS = fakerRussian.address().streetAddress(),
                                   STATE = getRandomValue(allStates),
                                   CITY = getRandomConnectedValue();
