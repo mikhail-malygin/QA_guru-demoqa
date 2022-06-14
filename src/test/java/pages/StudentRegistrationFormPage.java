@@ -14,20 +14,20 @@ public class StudentRegistrationFormPage extends CalendarComponent {
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultTableComponent resultTableComponent = new ResultTableComponent();
 
-    SelenideElement firstNameInput = $("#firstName");
-    SelenideElement lastNameInput = $("#lastName");
-    SelenideElement userEmailInput = $("#userEmail");
-    SelenideElement genderCheckBox = $("#genterWrapper");
-    SelenideElement userNumberInput = $("#userNumber");
-    SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
-    SelenideElement subjectInput = $("#subjectsInput");
-    SelenideElement hobbyInput = $("#hobbiesWrapper");
-    SelenideElement uploadFileButton = $("#uploadPicture");
-    SelenideElement addressInput =  $("#currentAddress");
-    SelenideElement stateSelector =  $("#state");
-    SelenideElement citySelector =  $("#city");
-    SelenideElement submitButton =  $("[id=submit]");
-    SelenideElement titleSubmitModalWindow =  $("#example-modal-sizes-title-lg");
+    protected static final SelenideElement firstNameInput = $("#firstName");
+    protected static final SelenideElement lastNameInput = $("#lastName");
+    protected static final SelenideElement userEmailInput = $("#userEmail");
+    protected static final SelenideElement genderCheckBox = $("#genterWrapper");
+    protected static final SelenideElement userNumberInput = $("#userNumber");
+    protected static final SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
+    protected static final SelenideElement subjectInput = $("#subjectsInput");
+    protected static final SelenideElement hobbyInput = $("#hobbiesWrapper");
+    protected static final SelenideElement uploadFileButton = $("#uploadPicture");
+    protected static final SelenideElement addressInput =  $("#currentAddress");
+    protected static final SelenideElement stateSelector =  $("#state");
+    protected static final SelenideElement citySelector =  $("#city");
+    protected static final SelenideElement submitButton =  $("[id=submit]");
+    protected static final SelenideElement titleSubmitModalWindow =  $("#example-modal-sizes-title-lg");
 
     public StudentRegistrationFormPage openPage() {
         open("/automation-practice-form");
