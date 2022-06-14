@@ -1,19 +1,23 @@
 package pages.github;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.selector.ByText;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+
 
 public class GithubSelenideWikiTab {
 
-    protected static final SelenideElement softAssertionsLink = $(new ByText("Soft assertions"));
+    protected static final SelenideElement showMorePages = $(".Box-row.wiki-more-pages-link");
+    protected static final SelenideElement softAssertionsLink = $("ul[data-filterable-for=wiki-pages-filter] " +
+                                                                 "a[href=\"/selenide/selenide/wiki/SoftAssertions\"]");
     protected static final SelenideElement junit5Anchor = $("#user-content-3-using-junit5-extend-test-class");
 
     public void goToSoftAssertionsPage() {
-        softAssertionsLink .click();
+        showMorePages.$(byText("Show 2 more pages…")).click();
+        softAssertionsLink.click();
 
     }
 
