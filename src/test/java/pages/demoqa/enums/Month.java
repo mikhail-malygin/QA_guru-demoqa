@@ -1,4 +1,4 @@
-package enums;
+package pages.demoqa.enums;
 
 public enum Month {
     JANUARY("January"),

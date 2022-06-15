@@ -1,8 +1,8 @@
-package tests;
+package tests.demoqa;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.github.javafaker.Faker;
-import pages.StudentRegistrationFormPage;
+import pages.demoqa.StudentRegistrationFormPage;
 
 import java.util.Arrays;
 import java.util.List;
