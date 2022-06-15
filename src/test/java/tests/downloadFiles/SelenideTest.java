@@ -25,7 +25,7 @@ public class SelenideTest {
         try (InputStream inputStream = new FileInputStream(file)) {
             byte[] fileContent = inputStream.readAllBytes();
             String asString = new String(fileContent, UTF_8);
-            assertThat(asString).contains("sjd");
+            assertThat(asString).contains("Contributions to JUnit 5");
         }
     }
 
