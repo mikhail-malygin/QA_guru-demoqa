@@ -30,6 +30,7 @@ public class ReadArchiveFilesTests {
         }
 
         try (InputStream inputStream = classLoader.getResourceAsStream("archiveWithPdfXlsxCsv.zip")) {
+            assert inputStream != null;
             ZipInputStream zipInputStream = new ZipInputStream(inputStream);
             ZipEntry zipEntry;
             while ((zipEntry = zipInputStream.getNextEntry()) != null) {
@@ -63,6 +64,7 @@ public class ReadArchiveFilesTests {
 
     void checkCsvFile() throws IOException, CsvException {
         try (InputStream inputStreamCsv = classLoader.getResourceAsStream("output/csv_sample.csv")){
+            assert inputStreamCsv != null;
             CSVReader csvReader = new CSVReader(new InputStreamReader(inputStreamCsv, UTF_8));
             List<String[]> csv = csvReader.readAll();
 

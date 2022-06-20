@@ -1,0 +1,18 @@
+{
+	"city": "Moscow",
+	"date": "18.06.2022",
+	"temperature": 23,
+	"isRaining": true,
+	"humidity": "20%",
+	"pressure": 733,
+	"wind": [
+		{
+			"windSpeed": 2,
+			"windDirection": "NW"
+		},
+		{
+			"windSpeed": 4,
+			"windDirection": "W"
+		}
+	]
+}
