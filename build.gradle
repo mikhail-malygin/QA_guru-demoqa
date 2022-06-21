@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'io.qameta.allure' version '2.10.0'
 }
 
 group 'guru.qa'
@@ -9,11 +10,26 @@ repositories {
     mavenCentral()
 }
 
+allure {
+    report {
+        version.set("2.18.1")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.18.1")
+            }
+        }
+    }
+}
+
 dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter:5.7.0',
             'com.codeborne:selenide:6.4.0',
-            'com.github.javafaker:javafaker:1.0.2'
+            'com.github.javafaker:javafaker:1.0.2',
+            'io.qameta.allure:allure-selenide:2.18.1'
     )
 }
 
