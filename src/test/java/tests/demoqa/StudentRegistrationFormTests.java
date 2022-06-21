@@ -1,8 +1,8 @@
-package tests;
+package tests.demoqa;
 
 import org.junit.jupiter.api.Test;
 
-import static tests.TestData.*;
+import static tests.demoqa.TestData.*;
 
 public class StudentRegistrationFormTests extends TestBase {
 

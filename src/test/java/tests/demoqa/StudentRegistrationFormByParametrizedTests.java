@@ -1,17 +1,17 @@
-package tests;
+package tests.demoqa;
 
-import enums.Month;
+import pages.demoqa.enums.Month;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
-import static tests.TestData.*;
-import static tests.TestData.CITY;
+import static tests.demoqa.TestData.*;
+import static tests.demoqa.TestData.CITY;
 
 public class StudentRegistrationFormByParametrizedTests extends TestBase {
 
-    @CsvFileSource(resources = "data/data_studentRegistrationForm.csv")
+    @CsvFileSource(resources = "tests.data/data_studentRegistrationForm.csv")
     @ParameterizedTest(name = "Filling a student registration form test using the next test data: " +
             "First Name = {0}, Last Name = {1}, Email = {2}, Gender = {3}, Mobile = {4}," +
             "Day of birth = {5}, Month of birth = {6}, Year of birth = {7}, Subject = {8}" +
