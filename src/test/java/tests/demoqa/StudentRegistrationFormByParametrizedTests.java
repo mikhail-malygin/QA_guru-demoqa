@@ -1,5 +1,7 @@
 package tests.demoqa;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import pages.demoqa.enums.Month;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
@@ -17,6 +19,7 @@ public class StudentRegistrationFormByParametrizedTests extends TestBase {
             "Day of birth = {5}, Month of birth = {6}, Year of birth = {7}, Subject = {8}" +
             "Hobby = {9}, Picture name = {10}, Picture path = {11}, Current address = {12}," +
             "State = {13}, City = {14}")
+    @Tag("demoQa")
     void fillingRegistrationFormUsingCsvFileSource(String firstName, String lastName, String email, String gender,
                                                    String mobile, String dayOfBirth, String monthOfBirth, String yearOfBirth,
                                                    String subject, String hobby, String pictureName, String picturePath,
@@ -51,6 +54,8 @@ public class StudentRegistrationFormByParametrizedTests extends TestBase {
 
     @EnumSource(Month.class)
     @ParameterizedTest(name = "Filling a student registration form test using all months of year: {0}")
+    @Tag("demoQa")
+    @Disabled
     void fillingRegistrationFormUsingEnumTest(Month month) {
 
         studentRegistrationFormPage.openPage()
@@ -82,6 +87,7 @@ public class StudentRegistrationFormByParametrizedTests extends TestBase {
 
     @ValueSource(strings = {"Sports", "Reading", "Music"})
     @ParameterizedTest(name = "Filling a student registration form test using all hobbies: {0}")
+    @Tag("demoQa")
     void fillingRegistrationFormUsingValueSource(String hobby) {
 
         studentRegistrationFormPage.openPage()
@@ -123,6 +129,7 @@ public class StudentRegistrationFormByParametrizedTests extends TestBase {
 
     @MethodSource(value = "birthdayDataProvider")
     @ParameterizedTest(name = "Filling a student registration form test using different birthdays: {0} {1} {2}")
+    @Tag("demoQa")
     void fillingRegistrationFormUsingMethodSource(String day, String month, String year) {
 
         studentRegistrationFormPage.openPage()

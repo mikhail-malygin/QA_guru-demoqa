@@ -37,7 +37,8 @@ dependencies {
             'com.opencsv:opencsv:5.6',
             'com.google.code.gson:gson:2.9.0',
             'commons-io:commons-io:2.11.0',
-            'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+            'com.fasterxml.jackson.core:jackson-databind:2.13.3',
+            'org.aeonbits.owner:owner:1.0.12'
     )
 }
 
@@ -47,6 +48,20 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-test {
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task demoqa_tests(type: Test) {
+    useJUnitPlatform{
+        includeTags "demoQa"
+    }
 }

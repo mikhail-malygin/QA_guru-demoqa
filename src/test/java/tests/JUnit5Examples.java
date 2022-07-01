@@ -20,11 +20,13 @@ public class JUnit5Examples {
     }
 
     @Test
+    @Disabled
     void firstTest() {
         System.out.println("======== Started first test");
     }
 
     @Test
+    @Disabled
     void secondTest() {
         System.out.println("======== Started second test");
     }

@@ -1,5 +1,7 @@
 package tests.demoqa;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.TestBase;
 
@@ -11,6 +13,8 @@ import static com.codeborne.selenide.Selenide.open;
 public class TextBoxTests extends TestBase {
 
     @Test
+    @Tag("demoQa")
+    @Disabled
     void successfulTest() {
         open("/text-box");
         $("#userName").setValue("Иванов Петр Иванович");

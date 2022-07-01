@@ -1,6 +1,7 @@
 package tests.demoqa;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -10,6 +11,7 @@ public class StudentRegistrationFormTests extends TestBase {
 
     @Test
     @DisplayName("Filling a registration form test")
+    @Tag("demoQa")
     void fillingRegistrationFormTest() {
 
         step("Open a page", () -> {

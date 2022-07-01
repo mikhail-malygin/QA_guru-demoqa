@@ -12,7 +12,7 @@ import static org.openqa.selenium.By.partialLinkText;
 
 public class IssueAssertionGitHubTests extends TestBase{
 
-    private final String REPOSITORY = "mikhail-malygin/QA_guru-demoqa";
+    private final String REPOSITORY = "mikhail-malygin/QA_guru_all_tests";
     private final String ISSUE_HEADER = "There aren’t any open issues.";
 
     @Test
@@ -22,10 +22,10 @@ public class IssueAssertionGitHubTests extends TestBase{
         open("https://github.com/");
 
         $(".header-search-input").click();
-        $(".header-search-input").sendKeys("mikhail-malygin/QA_guru-demoqa");
+        $(".header-search-input").sendKeys("mikhail-malygin/QA_guru_all_tests");
         $(".header-search-input").submit();
 
-        $(linkText("mikhail-malygin/QA_guru-demoqa")).click();
+        $(linkText("mikhail-malygin/QA_guru_all_tests")).click();
         $(partialLinkText("Issues")).click();
         $("h3").shouldHave(text(ISSUE_HEADER));
     }
